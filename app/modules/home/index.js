@@ -7,7 +7,11 @@ define([ 'app' ],
             console.log('here ');
 
             this.load = function() {
-                App.getRegionByKey('major').html(App.template('app/templates/index.hbs', {
+                App.getRegionByKey('head').html(App.template('app/templates/index.hbs', {
+                    var234: 'test'
+                }));
+
+                App.getRegionByKey('major').html(App.template('app/templates/list.hbs', {
                     var234: 'test'
                 }));
             };

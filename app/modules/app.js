@@ -13,7 +13,8 @@ define([ 'templates' ],
             var modules = {};
 
             var regions = {
-                major: body.find('#main-area-major')
+                major: body.find('#main-area-major'),
+                head: body.find('#main-area-head')
             };
 
             /* private function */
