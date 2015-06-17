@@ -1,0 +1,56 @@
+/* helpers */
+.left {
+    float:left;
+}
+.half{
+    width:50%;
+}
+.clear{
+    clear:both;
+}
+ul
+{
+    list-style-type: none;
+}
+/*div {
+    border:1px solid red;
+}*/
+
+/* body */
+body, input, button, select{
+    font-family: 'Open Sans', serif;
+    font-size:16px;
+}
+.styled-select select {
+    background: transparent;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+}
+.styled-select {
+    width: 240px;
+    height: 34px;
+    overflow: hidden;
+    background: url(http://cdn.bavotasan.com/wp-content/uploads/2011/05/down_arrow_select.jpg) no-repeat right #ddd;
+    border: 1px solid #ccc;
+}
+#main {
+    width:800px;
+    margin:0 auto;
+    border: 1px solid #bfbfbf;
+    border-radius: 15px;
+    webkit-box-shadow: 0 0 5px 0px #8a8a8a;
+    box-shadow: 0 0 5px 0px #8a8a8a;
+    -moz-box-shadow: 0 0 5px 0px #8a8a8a;
+    padding:40px;
+}
+
+/* list */
+.items {
+    padding:20px 0;
+}
