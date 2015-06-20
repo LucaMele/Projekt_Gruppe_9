@@ -6,13 +6,13 @@ module.exports = function(grunt) {
         handlebars: {
             all: {
                 files: {
-                    "app/templates/templates.js": ["app/templates/**/*.hbs"]
+                    "app/templates/templates.js": ["public/app/templates/**/*.hbs"]
                 }
             }
         },
         watch: {
             scripts: {
-                files: ['app/templates/**/*.hbs'],
+                files: ['public/app/templates/**/*.hbs'],
                 tasks: ['handlebars']
             }
         }
