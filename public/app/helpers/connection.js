@@ -5,8 +5,21 @@ define([ 'app' ],
 
         var ConnectionManager = function() {
 
-            this.create = function(note) {
-                notes.push(note);
+            this.create = function(serializedForm) {
+                var i, l, sendObj = {};
+                for (i = 0, l = serializedForm.length; i < l; i++) {
+                    sendObj[serializedForm[i].name] = serializedForm[i].value;
+                }
+                $.ajax({
+                    dataType: "json",
+                    method: "POST",
+                    url: "/note",
+                    data: {form: JSON.stringify(sendObj)}
+                }).done(function( msg ) {
+
+                }).fail(function( msg ) {
+
+                });
             };
 
             this.delete = function(note) {
