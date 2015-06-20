@@ -3,9 +3,9 @@ this["JST"] = this["JST"] || {};
 this["JST"]["public/app/templates/form.hbs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div id=\"main\">\n\n    <div class=\"left formTitle\">\n        Title\n    </div>\n    <div class=\"left formContent\">\n        <input type=\"text\">\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formTitle\">\n        Description\n    </div>\n    <div class=\"left formContent\">\n        <textarea rows=\"10\" cols=\"70\"></textarea>\n    </div>\n    <div style=\"clear:all\"></div>\n\n\n\n    "
+  return "<div id=\"main\" class=\"form\">\n<form id=\"create\">\n    <div class=\"left formTitle\">\n        Title\n    </div>\n    <div class=\"left formContent\">\n        <input type=\"text\">\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formTitle\">\n        Description\n    </div>\n    <div class=\"left formContent\">\n        <textarea rows=\"10\" cols=\"70\"></textarea>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formTitle\">\n        Importance\n    </div>\n    <div class=\"left formContent importance\">\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formContent\">&nbsp;</div>\n    <div class=\"left formTitle\"><button>Cancel</button>&nbsp;<button>Save</button></div>\n    "
     + this.escapeExpression(((helper = (helper = helpers.modus || (depth0 != null ? depth0.modus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"modus","hash":{},"data":data}) : helper)))
-    + "\n\n</div>";
+    + "\n</form>\n</div>";
 },"useData":true});
 
 this["JST"]["public/app/templates/head.hbs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
