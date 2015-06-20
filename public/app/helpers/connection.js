@@ -3,12 +3,7 @@ define([ 'app' ],
         'use strict';
         var inst = null;
 
-        var StorageManager = function() {
-            var notes = [];
-
-            var saveInStorage = function () {
-                localStorage.setItem("notes", notes);
-            };
+        var ConnectionManager = function() {
 
             this.create = function(note) {
                 notes.push(note);
@@ -28,10 +23,10 @@ define([ 'app' ],
         };
 
         if (inst === null) {
-            inst = new StorageManager();
+            inst = new ConnectionManager();
         }
 
-        App.storage = inst;
+        App.connectionManager = inst;
 
         return inst;
     });

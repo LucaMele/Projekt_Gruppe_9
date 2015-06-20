@@ -10,7 +10,7 @@ require(['handlebars', 'jquery'], function(handlebars) {
             'modules/home/index',
             'modules/note/create',
             'modules/note/edit',
-            'helpers/storage'
+            'helpers/connection'
         ], function() {
             // modules
             require(
