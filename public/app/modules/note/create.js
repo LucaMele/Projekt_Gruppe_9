@@ -18,8 +18,10 @@ define([ 'app' , 'helpers/connection'],
             };
 
             var submitFormHandler = function(ev) {
+                var serializedForm;
                 ev.preventDefault();
-                console.log(form$el.serializeObject());
+                serializedForm = JSON.stringify(form$el.serializeArray());
+                connectionManager.create(serializedForm);
             };
 
             var enableListeners = function() {
@@ -29,7 +31,7 @@ define([ 'app' , 'helpers/connection'],
 
             this.load = function() {
                 renderTemplates();
-                enableListeners()
+                enableListeners();
             };
         };
 

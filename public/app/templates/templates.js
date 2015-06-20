@@ -3,9 +3,9 @@ this["JST"] = this["JST"] || {};
 this["JST"]["public/app/templates/form.hbs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div id=\"main\">\r\n\r\n    <div class=\"left formTitle\">\r\n        Title\r\n    </div>\r\n    <div class=\"left formContent\">\r\n        <input type=\"text\">\r\n    </div>\r\n    <div class=\"clear\"></div>\r\n    <div class=\"left formTitle\">\r\n        Description\r\n    </div>\r\n    <div class=\"left formContent\">\r\n        <textarea rows=\"10\" cols=\"70\"></textarea>\r\n    </div>\r\n    <div style=\"clear:all\"></div>\r\n\r\n\r\n\r\n    "
+  return "<div id=\"main\" class=\"form\">\r\n<form id=\"create\">\r\n    <div class=\"left formTitle\">\r\n        Title\r\n    </div>\r\n    <div class=\"left formContent\">\r\n        <input type=\"text\">\r\n    </div>\r\n    <div class=\"clear\"></div>\r\n    <div class=\"left formTitle\">\r\n        Description\r\n    </div>\r\n    <div class=\"left formContent\">\r\n        <textarea rows=\"10\" cols=\"70\"></textarea>\r\n    </div>\r\n    <div class=\"clear\"></div>\r\n    <div class=\"left formTitle\">\r\n        Importance\r\n    </div>\r\n    <div class=\"left formContent importance\">\r\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\r\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\r\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\r\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\r\n        <div class=\"left\"><img src=\"images/ray_act.png\"></div>\r\n    </div>\r\n    <div class=\"clear\"></div>\r\n    <div class=\"left formContent\">&nbsp;</div>\r\n    <div class=\"left formTitle\"><button>Cancel</button>&nbsp;<button>Save</button></div>\r\n    "
     + this.escapeExpression(((helper = (helper = helpers.modus || (depth0 != null ? depth0.modus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"modus","hash":{},"data":data}) : helper)))
-    + "\r\n\r\n</div>";
+    + "\r\n</form>\r\n</div>";
 },"useData":true});
 
 this["JST"]["public/app/templates/head.hbs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
