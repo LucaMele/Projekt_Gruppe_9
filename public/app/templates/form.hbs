@@ -4,29 +4,59 @@
         Title
     </div>
     <div class="left formContent">
-        <input type="text" name="title">
+        <input type="text" name="title" value="{{description}}">
     </div>
     <div class="clear"></div>
     <div class="left formTitle">
         Description
     </div>
     <div class="left formContent">
-        <textarea rows="10" cols="70" name="description"></textarea>
+        <textarea rows="10" cols="70" name="description">{{description}}</textarea>
     </div>
     <div class="clear"></div>
     <div class="left formTitle">
         Importance
     </div>
-    <div class="left formContent importance">
-        <div class="left importance_act"></div>
-        <div class="left importance_act"></div>
-        <div class="left importance_act"></div>
-        <div class="left importance_pas"></div>
-        <div class="left"><img src="images/ray_pas.png"></div>
+    <div class="left formContent">
+        <ul class="importance">
+            <li class="left importance_pas"></li>
+            <li class="left importance_pas"></li>
+            <li class="left importance_pas"></li>
+            <li class="left importance_pas"></li>
+            <li class="left importance_pas"></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="left formTitle">
+        Due date
+    </div>
+    <div class="left formContent"><input type="date" value="{{description}}" name="date" min="today">
     </div>
     <div class="clear"></div>
     <div class="left formContent">&nbsp;</div>
     <div class="left formTitle"><button>Cancel</button>&nbsp;<button>Save</button></div>
     {{modus}}
+
+    <script>
+        $('.importance li:nth-child(2)').hover(function(){
+            $('.importance li:nth-child(1)').toggleClass('importance_act');
+        });
+        $('.importance li:nth-child(3)').hover(function(){
+            $('.importance li:nth-child(1)').toggleClass('importance_act');
+            $('.importance li:nth-child(2)').toggleClass('importance_act');
+        });
+        $('.importance li:nth-child(4)').hover(function(){
+            $('.importance li:nth-child(1)').toggleClass('importance_act');
+            $('.importance li:nth-child(2)').toggleClass('importance_act');
+            $('.importance li:nth-child(3)').toggleClass('importance_act');
+        });
+        $('.importance li:nth-child(5)').hover(function(){
+            $('.importance li:nth-child(1)').toggleClass('importance_act');
+            $('.importance li:nth-child(2)').toggleClass('importance_act');
+            $('.importance li:nth-child(3)').toggleClass('importance_act');
+            $('.importance li:nth-child(4)').toggleClass('importance_act');
+        });
+
+    </script>
 </form>
 </div>

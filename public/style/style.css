@@ -63,3 +63,17 @@ body, input, button, select{
 }
 
 /* form */
+
+.importance_pas {
+    width:30px;
+    height:50px;
+    background-image: url("../images/ray_pas.png");
+    background-repeat: no-repeat;
+}
+.importance_act, .importance_pas:hover {
+    width:30px;
+    height:50px;
+    background-image: url("../images/ray_act.png");
+    background-repeat: no-repeat;
+}
+.forum_hover { background-color: #380606; }
