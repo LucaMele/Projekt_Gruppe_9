@@ -52,6 +52,7 @@
 
         $('.importance li').click(function() {
             rateValue = $(this).index()+1;
+            $('#rate').val(rateValue);
             paintRate(rateValue);
         });
 
