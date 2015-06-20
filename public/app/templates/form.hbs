@@ -25,6 +25,7 @@
             <li class="left importance_pas"></li>
             <li class="left importance_pas"></li>
         </ul>
+        <input type="hidden" name="rate" id="rate" value="{{rate}}">
     </div>
     <div class="clear"></div>
     <div class="left formTitle">
@@ -38,24 +39,28 @@
     {{modus}}
 
     <script>
-        $('.importance li:nth-child(2)').hover(function(){
-            $('.importance li:nth-child(1)').toggleClass('importance_act');
+
+        function paintRate(rate){
+            $('.importance li').removeClass('importance_act');
+            $('.importance li').addClass('importance_pas');
+            for(i=rate;i>0;i--){
+                $('.importance li:nth-child(' + i + ')').toggleClass('importance_act');
+            }
+        }
+        // get value and paint
+        paintRate($('#rate').val());
+
+        $('.importance li').click(function() {
+            rateValue = $(this).index()+1;
+            $('#rate').val(rateValue);
+            paintRate(rateValue);
         });
-        $('.importance li:nth-child(3)').hover(function(){
-            $('.importance li:nth-child(1)').toggleClass('importance_act');
-            $('.importance li:nth-child(2)').toggleClass('importance_act');
+
+        $('.importance li').hover(function(){
+            rateValue = $(this).index()+1;
+            paintRate(rateValue);
         });
-        $('.importance li:nth-child(4)').hover(function(){
-            $('.importance li:nth-child(1)').toggleClass('importance_act');
-            $('.importance li:nth-child(2)').toggleClass('importance_act');
-            $('.importance li:nth-child(3)').toggleClass('importance_act');
-        });
-        $('.importance li:nth-child(5)').hover(function(){
-            $('.importance li:nth-child(1)').toggleClass('importance_act');
-            $('.importance li:nth-child(2)').toggleClass('importance_act');
-            $('.importance li:nth-child(3)').toggleClass('importance_act');
-            $('.importance li:nth-child(4)').toggleClass('importance_act');
-        });
+
 
     </script>
 </form>
