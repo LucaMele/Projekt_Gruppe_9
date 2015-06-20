@@ -9,11 +9,11 @@ define([ 'app' , 'helpers/connection'],
             var form$el;
 
             var renderTemplates = function() {
-                App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {
-                    var234: 'test'
-                }));
+                App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
                 region$el = App.getRegionByKey('major').html(App.template('app/templates/form.hbs', {
-                    modus: 'create'
+                    description: '',
+                    title: '',
+                    date: ''
                 }));
             };
 

@@ -9,13 +9,17 @@ define([ 'app' ],
 
             /* public function */
             this.init = function() {
-                app.loadModule(url);
+                this.fragment = url.replace(/\d+/g, ":id");
+                this.url = url;
+                app.loadModule(this.fragment);
             };
 
             /* public function */
             this.handleRoute = function(ev) {
                 url = location.hash.slice(1) || '/';
-                app.loadModule(url);
+                this.fragment = url.replace(/\d+/g, ":id");
+                this.url = url;
+                app.loadModule(this.fragment);
             };
         };
 

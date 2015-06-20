@@ -30,8 +30,17 @@ define([ 'app' ],
                 notes[notes.indexOf(note)] = note;
             };
 
-            this.get = function() {
+            this.get = function(callback, id) {
+                var that = this;
+                $.ajax({
+                    dataType: "json",
+                    method: "GET",
+                    url: "/note/" + id
+                }).done(function( msg ) {
+                    callback.call(that, msg);
+                }).fail(function( msg ) {
 
+                });
             };
         };
 
