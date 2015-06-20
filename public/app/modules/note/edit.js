@@ -3,24 +3,28 @@ define([ 'app' ],
         'use strict';
         var inst = null;
 
-        var CreateNote = function() {
+        var EditNote = function() {
 
             this.load = function() {
+                App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {
+                    var234: 'test'
+                }));
+
                 App.getRegionByKey('major').html(App.template('app/templates/form.hbs', {
-                    modus: 'create'
+                    modus: 'edit'
                 }));
             };
         };
 
 
         if (inst === null) {
-            inst = new CreateNote();
+            inst = new EditNote();
         }
 
         App.registerModule({
             module: inst,
-            name: 'create_note'
+            name: 'edit_note'
         });
 
-        return CreateNote;
+        return EditNote;
     });
