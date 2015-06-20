@@ -8,13 +8,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
-var router = express.Router();
 
 app.use(express.static(__dirname + '/public'));
-app.get("/ajax", require('./routes/ajax.js'));
+
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+
+app.use("/", require('./routes/ajax.js'));
 
 
 
