@@ -20,7 +20,7 @@ define([ 'app' , 'helpers/connection'],
             var submitFormHandler = function(ev) {
                 var serializedForm;
                 ev.preventDefault();
-                serializedForm = JSON.stringify(form$el.serializeArray());
+                serializedForm = form$el.serializeArray();
                 connectionManager.create(serializedForm);
             };
 
