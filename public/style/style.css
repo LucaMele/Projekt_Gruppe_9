@@ -7,14 +7,13 @@
 }
 .formTitle{
     width:30%;
-
-
 }
 .formContent{
     width:70%;
 }
 .clear{
     clear:both;
+    padding:10px 0;
 }
 ul
 {

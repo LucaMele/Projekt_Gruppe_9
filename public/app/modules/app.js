@@ -34,7 +34,7 @@ define([ 'templates' ],
 
             /* public function */
             this.template = function(key, object) {
-                return templates[key](object);
+                return templates['public/' + key](object);
             };
 
             /* public function */
