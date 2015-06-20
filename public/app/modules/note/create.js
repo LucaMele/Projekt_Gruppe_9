@@ -21,12 +21,15 @@ define([ 'app' , 'helpers/connection'],
                 var serializedForm;
                 ev.preventDefault();
                 serializedForm = form$el.serializeArray();
-                connectionManager.create(serializedForm);
+                connectionManager.create(function() {location.href = ""; }, serializedForm);
             };
 
             var enableListeners = function() {
                 form$el = region$el.find('form');
                 form$el.on('submit', submitFormHandler);
+                region$el.find('.listener-cancel').on('click', function() {
+                    location.href = "";
+                });
             };
 
             this.load = function() {

@@ -7,6 +7,7 @@ var router = express.Router();
 var ajax = require('../controller/ajax/handler.js');
 
 router.post("/note", ajax.createNote);
+router.get("/note", ajax.getNoteList);
 router.get("/note/:id", ajax.getNote);
 
 module.exports = router;

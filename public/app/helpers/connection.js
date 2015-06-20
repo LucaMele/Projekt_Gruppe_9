@@ -5,8 +5,8 @@ define([ 'app' ],
 
         var ConnectionManager = function() {
 
-            this.create = function(serializedForm) {
-                var i, l, sendObj = {};
+            this.create = function(callback, serializedForm) {
+                var i, l, sendObj = {}, that = this;
                 for (i = 0, l = serializedForm.length; i < l; i++) {
                     sendObj[serializedForm[i].name] = serializedForm[i].value;
                 }
@@ -16,7 +16,7 @@ define([ 'app' ],
                     url: "/note",
                     data: {form: JSON.stringify(sendObj)}
                 }).done(function( msg ) {
-
+                    callback.call(that);
                 }).fail(function( msg ) {
 
                 });
@@ -36,6 +36,19 @@ define([ 'app' ],
                     dataType: "json",
                     method: "GET",
                     url: "/note/" + id
+                }).done(function( msg ) {
+                    callback.call(that, msg);
+                }).fail(function( msg ) {
+
+                });
+            };
+
+            this.getList = function(callback) {
+                var that = this;
+                $.ajax({
+                    dataType: "json",
+                    method: "GET",
+                    url: "/note"
                 }).done(function( msg ) {
                     callback.call(that, msg);
                 }).fail(function( msg ) {

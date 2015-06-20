@@ -16,13 +16,19 @@
             <div class="left">CAS FEE Selbstudium / Projekt Aufgabe erledigen</div>
         </div>
     </div>
+
     <div class="clear"></div>
     <div class="item">
 
     </div>
+    <select class="select-listener-alfa" style="min-width: 200px; height: 50px">
+        {{#each notes}}
+            <option value="{{this.id}}">{{this.description}}</option>
+        {{/each}}
+    </select>
+    <button class="button-listener-alfa">Edit</button>
+
 </div>
 
 
 <a href="#create_note">MAKE NEW ON</a>
-
-<a href="#edit_note">EDIT NEW ON</a>

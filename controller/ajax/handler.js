@@ -29,3 +29,13 @@ module.exports.getNote = function(req, res) {
         });
     });
 };
+
+module.exports.getNoteList = function(req, res) {
+    db.find({}, function(err, doc){
+        res.format({
+            'application/json': function(){
+                res.send(doc);
+            }
+        });
+    });
+};

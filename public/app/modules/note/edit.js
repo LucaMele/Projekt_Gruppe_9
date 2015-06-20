@@ -15,12 +15,15 @@ define([ 'app' , 'helpers/connection'],
             };
 
             var submitFormHandler = function(ev) {
-
+                ev.preventDefault();
             };
 
             var enableListeners = function() {
                 form$el = region$el.find('form');
                 form$el.on('submit', submitFormHandler);
+                region$el.find('.listener-cancel').on('click', function() {
+                    location.href = "";
+                });
             };
 
             this.load = function() {
