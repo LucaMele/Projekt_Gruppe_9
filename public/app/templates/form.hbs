@@ -37,35 +37,8 @@
     <div class="left formContent">&nbsp;</div>
     <div class="left formTitle"><button class="listener-cancel">Cancel</button>&nbsp;<button>Save</button></div>
     {{modus}}
-
-    <script>
-
-        function paintRate(rate){
-            $('.importance li').removeClass('importance_act');
-            $('.importance li').addClass('importance_pas');
-            for(i=rate;i>0;i--){
-                $('.importance li:nth-child(' + i + ')').toggleClass('importance_act');
-            }
-        }
-
-        $('.importance li').click(function() {
-            rateValue = $(this).index()+1;
-            $('#rate').val(rateValue);
-            paintRate(rateValue);
-        });
-
-        $('.importance li').hover(function(){
-            rateValue = $(this).index()+1;
-            paintRate(rateValue);
-        });
-
-        $('.importance li').mouseout(function(){
-           paintRate($('#rate').val());
-        });
-
-        // get value and paint
-        paintRate($('#rate').val());
-
-    </script>
 </form>
+    <script>
+        $('#create').validate();
+    </script>
 </div>
