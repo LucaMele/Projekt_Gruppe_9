@@ -47,8 +47,6 @@
                 $('.importance li:nth-child(' + i + ')').toggleClass('importance_act');
             }
         }
-        // get value and paint
-        paintRate($('#rate').val());
 
         $('.importance li').click(function() {
             rateValue = $(this).index()+1;
@@ -61,6 +59,12 @@
             paintRate(rateValue);
         });
 
+        $('.importance li').mouseout(function(){
+           paintRate($('#rate').val());
+        });
+
+        // get value and paint
+        paintRate($('#rate').val());
 
     </script>
 </form>
