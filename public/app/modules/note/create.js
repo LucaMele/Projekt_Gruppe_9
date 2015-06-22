@@ -1,40 +1,26 @@
-define([ 'app' , 'helpers/connection'],
-    function (App, connectionManager) {
+define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
+    function (App, connectionManager, FormElHandler) {
         'use strict';
         var inst = null;
 
         var CreateNote = function() {
 
             var region$el;
-            var form$el;
 
-            var renderTemplates = function() {
-                App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
-                region$el = App.getRegionByKey('major').html(App.template('app/templates/form.hbs', {
-                    description: '',
-                    title: '',
-                    date: ''
-                }));
-            };
-
-            var submitFormHandler = function(ev) {
+            var submitFormHandler = function(ev, form$el) {
                 var serializedForm;
-                ev.preventDefault();
+
                 serializedForm = form$el.serializeArray();
                 connectionManager.create(function() {location.href = ""; }, serializedForm);
             };
 
-            var enableListeners = function() {
-                form$el = region$el.find('form');
-                form$el.on('submit', submitFormHandler);
-                region$el.find('.listener-cancel').on('click', function() {
-                    location.href = "";
-                });
-            };
-
             this.load = function() {
-                renderTemplates();
-                enableListeners();
+                var formElHandler = new FormElHandler();
+                formElHandler.handle(submitFormHandler, {
+                    description: '',
+                    title: '',
+                    date: ''
+                });
             };
         };
 
