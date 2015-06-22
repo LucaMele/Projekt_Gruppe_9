@@ -26,8 +26,21 @@ define([ 'app' ],
                 notes.splice(notes.indexOf(note), 1);
             };
 
-            this.update = function(note) {
-                notes[notes.indexOf(note)] = note;
+            this.update = function(callback, serializedForm, id) {
+                var i, l, sendObj = {}, that = this;
+                for (i = 0, l = serializedForm.length; i < l; i++) {
+                    sendObj[serializedForm[i].name] = serializedForm[i].value;
+                }
+                $.ajax({
+                    dataType: "json",
+                    method: "PUT",
+                    url: "/note/" + id,
+                    data: {form: JSON.stringify(sendObj)}
+                }).done(function( msg ) {
+                    callback.call(that);
+                }).fail(function( msg ) {
+
+                });
             };
 
             this.get = function(callback, id) {

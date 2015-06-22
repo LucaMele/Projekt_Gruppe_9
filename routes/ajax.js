@@ -9,5 +9,6 @@ var ajax = require('../controller/ajax/handler.js');
 router.post("/note", ajax.createNote);
 router.get("/note", ajax.getNoteList);
 router.get("/note/:id", ajax.getNote);
+router.put("/note/:id", ajax.updateNote);
 
 module.exports = router;

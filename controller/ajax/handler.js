@@ -18,6 +18,19 @@ module.exports.createNote = function(req, res) {
 
 };
 
+module.exports.updateNote = function(req, res) {
+    var note = JSON.parse(req.body.form);
+    note.id = +req.originalUrl.replace( /^\D+/g, '');
+
+    db.update({ id: note.id  }, note, {}, function (err, numReplaced) {
+        res.format({
+            'application/json': function(){
+                res.send({storage_id: note.id});
+            }
+        });
+    });
+};
+
 
 
 module.exports.getNote = function(req, res) {

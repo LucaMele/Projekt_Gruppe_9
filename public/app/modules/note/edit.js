@@ -7,6 +7,7 @@ define([ 'app' , 'helpers/connection'],
 
             var region$el;
             var form$el;
+            var id;
 
             var renderTemplates = function(object) {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
@@ -15,7 +16,10 @@ define([ 'app' , 'helpers/connection'],
             };
 
             var submitFormHandler = function(ev) {
+                var serializedForm;
                 ev.preventDefault();
+                serializedForm = form$el.serializeArray();
+                connectionManager.update(function() {location.href = ""; }, serializedForm, id);
             };
 
             var enableListeners = function() {
@@ -27,11 +31,11 @@ define([ 'app' , 'helpers/connection'],
             };
 
             this.load = function() {
-
+                id = App.router.url.replace( /^\D+/g, '');
                 connectionManager.get(function(object){
                     renderTemplates(object[0]);
                     enableListeners();
-                }, App.router.url.replace( /^\D+/g, ''));
+                }, id);
 
 
 
