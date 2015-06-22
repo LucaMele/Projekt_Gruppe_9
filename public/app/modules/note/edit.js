@@ -3,18 +3,32 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
         'use strict';
         var inst = null;
 
+        /**
+         * @constructor EditNote.
+         * */
         var EditNote = function() {
-
-            var region$el;
             var id;
 
+            /**
+             *
+             * private function submitFormHandler
+             *
+             * Callback method triggered on submit from the formElHandler
+             *
+             * @param {object} ev.
+             * @param {object} form$el.
+             **/
             var submitFormHandler = function(ev, form$el) {
-                var serializedForm;
-
-                serializedForm = form$el.serializeArray();
-                connectionManager.update(function() {location.href = ""; }, serializedForm, id);
+                connectionManager.update(function() {location.href = ""; }, form$el.serializeArray(), id);
             };
 
+            /**
+             *
+             * public function submitFormHandler
+             *
+             * Modules entrance point
+             *
+             **/
             this.load = function() {
                 id = App.router.url.replace( /^\D+/g, '');
                 connectionManager.get(function(object){
@@ -24,11 +38,12 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
             };
         };
 
-
+        // Singleton Pattern
         if (inst === null) {
             inst = new EditNote();
         }
 
+        // Register a module in the app. The URL #create_note will call this module
         App.registerModule({
             module: inst,
             name: 'edit_note/:id'

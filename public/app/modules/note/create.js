@@ -3,17 +3,31 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
         'use strict';
         var inst = null;
 
+        /**
+         * @constructor CreateNote.
+         * */
         var CreateNote = function() {
 
-            var region$el;
-
+            /**
+             *
+             * private function submitFormHandler
+             *
+             * Callback method triggered on submit from the formElHandler
+             *
+             * @param {object} ev.
+             * @param {object} form$el.
+             **/
             var submitFormHandler = function(ev, form$el) {
-                var serializedForm;
-
-                serializedForm = form$el.serializeArray();
-                connectionManager.create(function() {location.href = ""; }, serializedForm);
+                connectionManager.create(function() {location.href = ""; }, form$el.serializeArray());
             };
 
+            /**
+             *
+             * public function submitFormHandler
+             *
+             * Modules entrance point
+             *
+             **/
             this.load = function() {
                 var formElHandler = new FormElHandler();
                 formElHandler.handle(submitFormHandler, {
@@ -24,11 +38,12 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
             };
         };
 
-
+        // Singleton Pattern
         if (inst === null) {
             inst = new CreateNote();
         }
 
+        // Register a module in the app. The URL #create_note will call this module
         App.registerModule({
             module: inst,
             name: 'create_note'
