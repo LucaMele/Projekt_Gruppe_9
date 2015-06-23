@@ -4,14 +4,14 @@
         Title
     </div>
     <div class="left formContent">
-        <input type="text" name="title" value="{{title}}">
+        <input type="text" name="title" value="{{title}}" required>
     </div>
     <div class="clear"></div>
     <div class="left formTitle">
         Description
     </div>
     <div class="left formContent">
-        <textarea rows="10" cols="70" name="description">{{description}}</textarea>
+        <textarea rows="10" cols="70" name="description" required>{{description}}</textarea>
     </div>
     <div class="clear"></div>
     <div class="left formTitle">
@@ -31,14 +31,11 @@
     <div class="left formTitle">
         Due date
     </div>
-    <div class="left formContent"><input type="date" value="{{date}}" name="date" min="today">
+    <div class="left formContent"><input type="date" value="{{date}}" name="date" min="today" required>
     </div>
     <div class="clear"></div>
     <div class="left formContent">&nbsp;</div>
     <div class="left formTitle"><button class="listener-cancel">Cancel</button>&nbsp;<button>Save</button></div>
     {{modus}}
 </form>
-    <script>
-        $('#create').validate();
-    </script>
 </div>

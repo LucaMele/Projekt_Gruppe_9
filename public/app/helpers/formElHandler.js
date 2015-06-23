@@ -37,10 +37,9 @@ define([ 'app', 'validation' ],
                 paintRate(form$El.find('#rate').val());
             };
 
-            var formValidation = function(form$El) {
+            var formValidation = function(form$El, region$el) {
                 // todo @ricardo -> hier bitte form code return true if validation ok!
-
-                return true;
+                    $("#create").validate();
             };
 
             this.handle = function(submitFormHandler, object) {
@@ -49,7 +48,7 @@ define([ 'app', 'validation' ],
                 formRunJs(form$El);
                 form$El.on('submit', function(ev) {
                     ev.preventDefault();
-                    if(formValidation(form$El)) {
+                    if(formValidation(form$El, region$el)) {
                         submitFormHandler(ev, form$El);
                     }
                 });
