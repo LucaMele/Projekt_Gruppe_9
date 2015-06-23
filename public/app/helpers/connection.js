@@ -22,8 +22,17 @@ define([ 'app' ],
                 });
             };
 
-            this.delete = function(note) {
-                notes.splice(notes.indexOf(note), 1);
+            this.delete = function(callback, id) {
+                var that = this;
+                $.ajax({
+                    dataType: "json",
+                    method: "DELETE",
+                    url: "/note/" + id
+                }).done(function( msg ) {
+                    callback.call(that, msg);
+                }).fail(function( msg ) {
+
+                });
             };
 
             this.update = function(callback, serializedForm, id) {

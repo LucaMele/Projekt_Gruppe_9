@@ -33,6 +33,7 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
                 id = App.router.url.replace( /^\D+/g, '');
                 connectionManager.get(function(object){
                     var formElHandler = new FormElHandler();
+                    object[0].id = id;
                     formElHandler.handle(submitFormHandler, object[0]);
                 }, id);
             };

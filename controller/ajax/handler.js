@@ -5,6 +5,7 @@ module.exports.createNote = function(req, res) {
 
     var note = JSON.parse(req.body.form);
     note.id = new Date().getTime() +  Math.floor((Math.random() * 1000) + 1);
+    note.state = "OK";
 
 
     db.insert(note, function(err, doc){
@@ -21,6 +22,7 @@ module.exports.createNote = function(req, res) {
 module.exports.updateNote = function(req, res) {
     var note = JSON.parse(req.body.form);
     note.id = +req.originalUrl.replace( /^\D+/g, '');
+    note.state = "OK";
 
     db.update({ id: note.id  }, note, {}, function (err, numReplaced) {
         res.format({
@@ -31,10 +33,22 @@ module.exports.updateNote = function(req, res) {
     });
 };
 
+module.exports.deleteNote = function(req, res) {
+
+    var id = +req.originalUrl.replace( /^\D+/g, '');
+        db.update({id: id, state: 'OK'},  {$set: {"state": "DELETED"}}, function (err, numReplaced) {
+            res.format({
+                'application/json': function(){
+                    res.send({storage_id: null});
+                }
+            });
+        });
+};
+
 
 
 module.exports.getNote = function(req, res) {
-    db.find({id: +req.originalUrl.replace( /^\D+/g, '')}, function(err, doc){
+    db.find({id: +req.originalUrl.replace( /^\D+/g, ''), state: 'OK'}, function(err, doc){
         res.format({
             'application/json': function(){
                 res.send(doc);
@@ -44,7 +58,7 @@ module.exports.getNote = function(req, res) {
 };
 
 module.exports.getNoteList = function(req, res) {
-    db.find({}, function(err, doc){
+    db.find({state: 'OK'}, function(err, doc){
         res.format({
             'application/json': function(){
                 res.send(doc);
