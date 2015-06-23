@@ -11,7 +11,7 @@ this["JST"]["public/app/templates/form.hbs"] = Handlebars.template({"compiler":[
     + alias3(((helper = (helper = helpers.rate || (depth0 != null ? depth0.rate : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"rate","hash":{},"data":data}) : helper)))
     + "\">\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formTitle\">\n        Due date\n    </div>\n    <div class=\"left formContent\"><input type=\"date\" value=\""
     + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
-    + "\" name=\"date\" min=\"today\" required>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formContent\">&nbsp;</div>\n    <div class=\"left formTitle\"><button class=\"listener-cancel\">Cancel</button>&nbsp;<button>Save</button></div>\n    "
+    + "\" name=\"date\" required>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"left formContent\">&nbsp;</div>\n    <div class=\"left formTitle\"><button class=\"listener-cancel\">Cancel</button>&nbsp;<button>Save</button></div>\n    "
     + alias3(((helper = (helper = helpers.modus || (depth0 != null ? depth0.modus : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"modus","hash":{},"data":data}) : helper)))
     + "\n</form>\n</div>\n";
 },"useData":true});
