@@ -43,8 +43,6 @@ module.exports.deleteNote = function(req, res) {
                 }
             });
         });
-
-
 };
 
 
