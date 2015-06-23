@@ -13,6 +13,7 @@ define([ 'app', 'validation' ],
                 var importance;
                 var rateValue;
                 var i;
+                var inputs;
                 function paintRate(rate){
                     importance = form$El.find('.importance li');
                     importance.removeClass('importance_act');
@@ -35,6 +36,12 @@ define([ 'app', 'validation' ],
                     paintRate(form$El.find('#rate').val());
                 });
                 paintRate(form$El.find('#rate').val());
+
+                inputs = form$El.find('input');
+                inputs.focusout(function(){
+                    $(this).val($.trim($(this).val()));
+                });
+
             };
 
             var formValidation = function(form$El, region$el) {

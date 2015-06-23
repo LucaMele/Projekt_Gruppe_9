@@ -1,8 +1,6 @@
 /**
  * Created by Luca on 20.06.2015.
  */
-
-
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
