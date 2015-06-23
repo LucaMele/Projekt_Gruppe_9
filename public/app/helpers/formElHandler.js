@@ -38,8 +38,7 @@ define([ 'app', 'validation' ],
             };
 
             var formValidation = function(form$El, region$el) {
-                // todo @ricardo -> hier bitte form code return true if validation ok!
-                    return $("#create").validate();
+                return $("#create").validate();
             };
 
             this.handle = function(submitFormHandler, object) {
