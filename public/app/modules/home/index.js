@@ -5,32 +5,26 @@ define([ 'app', 'helpers/connection' ],
 
         var Home = function() {
 
-            var button$elAlfa;
-
-            var select$elAlfa;
+            var buttons$el;
 
             var enableListeners = function() {
-                button$elAlfa.on('click', function(ev) {
-                    location.href = "#edit_note/" + select$elAlfa.val();
+                buttons$el.on('click', function(ev) {
+                    location.href = "#edit_note/" + $(ev.target).attr('data-id');
                 });
-
             };
 
             var renderTemplates = function(object) {
-
                 App.getRegionByKey('major').html(App.template('app/templates/index.hbs', { notes: object }));
-                button$elAlfa = App.getRegionByKey('major').find('.button-listener-alfa');
-                select$elAlfa = App.getRegionByKey('major').find('.select-listener-alfa');
-
-
+                buttons$el = App.getRegionByKey('major').find('.btn-row-listener');
             };
-
 
             this.load = function() {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
                 connectionManager.getList(function(object){
                     renderTemplates(object);
                     enableListeners();
+                }, {
+                    q: ''
                 });
             };
 
