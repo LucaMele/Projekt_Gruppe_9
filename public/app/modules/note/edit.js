@@ -19,7 +19,7 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
              * @param {object} form$el.
              **/
             var submitFormHandler = function(ev, form$el) {
-                connectionManager.update(function() {location.href = ""; }, form$el.serializeArray(), id);
+                connectionManager.update(function() {location.href = "#"; }, form$el.serializeArray(), id);
             };
 
             /**

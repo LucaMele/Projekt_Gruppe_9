@@ -59,7 +59,7 @@ define([ 'app', 'validation' ],
                     }
                 });
                 region$el.find('.listener-cancel').on('click', function() {
-                    location.href = "";
+                    location.href = "#";
                 });
             };
 

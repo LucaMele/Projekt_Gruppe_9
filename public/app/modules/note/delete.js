@@ -20,7 +20,7 @@ define([ 'app' , 'helpers/connection'],
             this.load = function() {
                 id = App.router.url.replace( /^\D+/g, '');
                 connectionManager.delete(function(object){
-                    location.href = "";
+                    location.href = "#";
                 }, id);
             };
         };
