@@ -45,7 +45,7 @@ define([ 'app', 'validation' ],
             };
 
             var formValidation = function(form$El, region$el) {
-                return $("#create").validate();
+                return true;//$("#create").validate();
             };
 
             this.handle = function(submitFormHandler, object) {

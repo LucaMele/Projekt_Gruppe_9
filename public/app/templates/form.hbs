@@ -31,16 +31,15 @@
     <div class="left formTitle">
         Due date
     </div>
-    <div class="left formContent"><input type="date" value="{{date}}" name="date" required>
-    </div>
+    <div class="left formContent"><input type="date" value="{{date}}" name="date" required></div>
     <div class="clear"></div>
-    <div class="left formContent">&nbsp;</div>
-    <div class="left formTitle"><button class="listener-cancel">Cancel</button>&nbsp;<button>Save</button></div>
+    <div class="left formContent">&nbsp;<a href="#delete_note/{{id}}" class="button delete">DELETE</a></div>
+    <div class="left formTitle"><button class="listener-cancel button">Cancel</button>&nbsp;<button class="button">Save</button></div>
     {{modus}}
 </form>
 
 </div>
 
 {{#if id}}
-<a href="#delete_note/{{id}}">DELETE THIS</a>
+
 {{/if}}
