@@ -16,13 +16,22 @@
     </div>
     <ul class="items">
         {{#each notes}}
-            <li>
+            <li class="item">
                 <div class="title">
                     <div class="left"><strong>{{this.title}}</strong> </div>
-                    <div class="left"> <em>{{this.description}}</em> </div>
-                    <div class="left"> {{this.rate}}</div>
+                    <div class="left">
+                        <ul class="importance index">
+                            {{#times this.rate}}
+                            <li class="left importance_act"></li>
+                            {{/times}}
+                        </ul>
+                    </div>
+                    <div class="clear">
+                        <div class="left description"> <em>{{this.description}}</em> </div>
+                        <div class="left buttonindex"><button class="btn-row-listener button" data-id="{{this.id}}">Edit</button></div>
+                    </div>
                 </div>
-                <button class="btn-row-listener button" data-id="{{this.id}}">Edit</button>
+                <div class="clear"></div>
             </li>
         {{/each}}
     </ul>

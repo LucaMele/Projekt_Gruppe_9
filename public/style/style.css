@@ -71,6 +71,11 @@ body, input, button, select{
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
 }
+.button:hover{
+    background: #888888;
+    color:#FFF;
+}
+
 .button.delete { background-color: #E56666; color:#FFF; }
 /* list */
 .items {
@@ -78,6 +83,19 @@ body, input, button, select{
 }
 .order div {
     padding-right:10px;
+}
+.description{
+    clear:both;
+    width:90%;
+}
+.buttonindex{
+    float:right;
+}
+.items .item{
+    padding:10px;
+}
+.items li:hover{
+    background-color:#eeeeee;
 }
 
     /* form */
@@ -93,5 +111,10 @@ body, input, button, select{
     height:50px;
     background-image: url("../images/ray_act.png");
     background-repeat: no-repeat;
+}
+.index .importance_act {
+    width:15px;
+    height:30px;
+    background-size:cover;
 }
 .forum_hover { background-color: #380606; }
