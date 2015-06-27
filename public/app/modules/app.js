@@ -14,6 +14,7 @@ define([ 'templates' ],
 
             var regions = {
                 major: body.find('#main-area-major'),
+                content: body.find('#main-area-content'),
                 head: body.find('#main-area-head')
             };
 

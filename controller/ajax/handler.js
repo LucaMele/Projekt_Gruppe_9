@@ -60,7 +60,7 @@ module.exports.getNoteList = function(req, res) {
 
     if (typeof req.query.o === 'undefined' && req.query.has !== 'undefined') {
         if(typeof req.query.q !== 'undefined') {
-            findObject[req.query.q] = isNaN(req.query.has) ? req.query.has : +req.query.has;
+            findObject[req.query.q] = isNaN(req.query.has) ? new RegExp(req.query.has) : +req.query.has;
         }
         db.find(findObject, function(err, doc){
             res.format({

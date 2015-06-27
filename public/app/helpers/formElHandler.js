@@ -5,6 +5,7 @@ define([ 'app', 'validation' ],
         var FormElHandler = function() {
             var renderTemplates = function(object) {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
+                App.getRegionByKey('content').html('');
                 return App.getRegionByKey('major').html(App.template('app/templates/form.hbs', object));
             };
 

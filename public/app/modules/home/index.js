@@ -5,7 +5,7 @@ define([ 'app', 'helpers/connection' ],
 
         var Home = function() {
 
-            var buttons$el, checkboxes$El, mainButtonsArea$el;
+            var buttons$el, checkboxes$El, mainButtonsArea$el, searchInputText$El;
 
             var notes = {};
 
@@ -30,7 +30,28 @@ define([ 'app', 'helpers/connection' ],
                 return d.getMilliseconds();
             };
 
-            var enableListeners = function() {
+            var enableMajorListeners = function() {
+                searchInputText$El.on('keyup', function(ev) {
+                    var value = $(this).val(),
+                        query = '';
+                    if (value.trim(' ') === '') {
+                        query = lastQuery;
+                    } else {
+                        query = 'title&has=' + $(this).val();
+                    }
+                    sendQuery(query);
+                });
+                mainButtonsArea$el.find('button').on('click', function(ev) {
+                    activeIndex = +$(this).attr('data-index');
+                    lastQuery = $(this).attr('data-query');
+                    mainButtonsArea$el.find('button').removeClass('active');
+                    $(this).addClass('active');
+                    searchInputText$El.val('');
+                    sendQuery(lastQuery);
+                });
+            };
+
+            var enableContentListeners = function() {
                 buttons$el.on('click', function(ev) {
                     location.href = "#edit_note/" + $(ev.target).attr('data-id');
                 });
@@ -45,37 +66,39 @@ define([ 'app', 'helpers/connection' ],
                     }
                     connectionManager.update(function() {  that.load(); }, note, note.id)
                 });
-
-                mainButtonsArea$el.find('button').on('click', function(ev) {
-                    activeIndex = +$(this).attr('data-index');
-                    lastQuery = $(this).attr('data-query');
-                    sendQuery(lastQuery);
-                });
-
             };
 
-            var renderTemplates = function() {
-                var i, l, templateObj = {buttons: {} , notes: notes};
+            var renderContentTemplates = function() {
+                var templateObj = {notes: notes};
+                App.getRegionByKey('content').html(App.template('app/templates/content.hbs', templateObj));
+                buttons$el = App.getRegionByKey('content').find('.btn-row-listener');
+                checkboxes$El = App.getRegionByKey('content').find('.checkbox-row-listener');
+            };
+
+            var renderMajorTemplates = function() {
+                var i, l, templateObj = {buttons: {}};
                 for (i = 0, l = buttons.length; i < l; i++) {
                     templateObj.buttons[buttons[i]] = activeIndex === i ? 'active' : '';
-
                 }
                 App.getRegionByKey('major').html(App.template('app/templates/index.hbs', templateObj));
-                buttons$el = App.getRegionByKey('major').find('.btn-row-listener');
-                checkboxes$El = App.getRegionByKey('major').find('.checkbox-row-listener');
+                searchInputText$El = App.getRegionByKey('major').find('#order_search');
                 mainButtonsArea$el = App.getRegionByKey('major').find('.listener-main-buttons-area');
             };
 
             var sendQuery = function(query) {
                 connectionManager.getList(function(object){
                     notes = object;
-                    renderTemplates();
-                    enableListeners();
+                    renderContentTemplates();
+                    enableContentListeners();
                 }, query);
             };
 
             this.load = function() {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
+                renderMajorTemplates();
+                enableMajorListeners();
+                renderContentTemplates();
+                enableContentListeners();
                 sendQuery(lastQuery);
             };
 
