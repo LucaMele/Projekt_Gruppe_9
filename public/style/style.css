@@ -87,11 +87,21 @@ body, input, button, select{
 .description{
     clear:both;
     width:90%;
-    height:45px;
-    overflow:hidden;
     cursor:zoom-in;
 }
-.fulltxt{
+.description .txt{
+     clear:both;
+     cursor:zoom-in;
+ }
+.description span{
+    height:45px;
+    overflow:hidden;
+    display:block;
+}
+.nocontent{
+    content: "";
+}
+.fulltxt span{
     height:100%;
     cursor:zoom-out;
 }
