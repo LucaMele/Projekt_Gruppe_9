@@ -87,6 +87,13 @@ body, input, button, select{
 .description{
     clear:both;
     width:90%;
+    height:45px;
+    overflow:hidden;
+    cursor:zoom-in;
+}
+.fulltxt{
+    height:100%;
+    cursor:zoom-out;
 }
 .buttonindex{
     float:right;
