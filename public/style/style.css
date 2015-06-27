@@ -89,10 +89,6 @@ body, input, button, select{
     width:90%;
     cursor:zoom-in;
 }
-.description .txt{
-     clear:both;
-     cursor:zoom-in;
- }
 .description span{
     height:45px;
     overflow:hidden;
