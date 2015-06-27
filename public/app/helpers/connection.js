@@ -35,10 +35,14 @@ define([ 'app' ],
                 });
             };
 
-            this.update = function(callback, serializedForm, id) {
+            this.update = function(callback, sendObject, id) {
                 var i, l, sendObj = {}, that = this;
-                for (i = 0, l = serializedForm.length; i < l; i++) {
-                    sendObj[serializedForm[i].name] = serializedForm[i].value;
+                if( Object.prototype.toString.call( sendObject ) === '[object Array]' ) {
+                    for (i = 0, l = sendObject.length; i < l; i++) {
+                        sendObj[sendObject[i].name] = sendObject[i].value;
+                    }
+                } else {
+                    sendObj = sendObject;
                 }
                 $.ajax({
                     dataType: "json",
@@ -65,12 +69,13 @@ define([ 'app' ],
                 });
             };
 
-            this.getList = function(callback) {
+            this.getList = function(callback, query) {
                 var that = this;
+                var q = typeof query === 'undefined' ? '' : '?q=' + query;
                 $.ajax({
                     dataType: "json",
                     method: "GET",
-                    url: "/note"
+                    url: "/note" + q
                 }).done(function( msg ) {
                     callback.call(that, msg);
                 }).fail(function( msg ) {

@@ -51,7 +51,6 @@ define([ 'templates' ],
                         modules[''].load();
                     }
                 } else {
-                    console.log(modules[url])
                     modules[url].load();
                 }
             };
@@ -83,12 +82,6 @@ define([ 'templates' ],
             App.inst = new App();
             App.inst.init();
         }
-
-
-       // $('#main-area-header').append(JST['app/templates/index.hbs']({var234: 'ricardo'}));
-
-
-
 
         return App.inst;
     });
