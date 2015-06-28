@@ -1,4 +1,4 @@
-define([ 'app', 'validation' ],
+define([ 'app' ],
     function (App) {
         'use strict';
 

@@ -149,7 +149,7 @@ body, input, button, select{
     background-color: #000; color:#FF0000;
     color:#FFF;
 }
-.dracula .button:hover{
+.dracula .button:hover, .dracula .active{
     background-color: #666; color:#FF0000;
 }
 .dracula .items li:hover{
@@ -163,7 +163,7 @@ body, input, button, select{
 .hell .button{
     background-color: red; color:#FFF;
 }
-.hell .button:hover{ color:#000;
+.hell .button:hover, .hell .active{ color:#000;
 }
 .hell .items li:hover{
     background-color: #FF0000;
@@ -176,7 +176,8 @@ body, input, button, select{
 .sky .button{
     background-color: #FFF; color:#000;
 }
-.sky .button:hover{ color:#000;
+.sky .button:hover, .sky .active{ color:#000;
+    background-color: #cdcdcd;
 }
 .sky .items li:hover{
     background-color: #97ccf1;
