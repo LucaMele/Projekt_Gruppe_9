@@ -18,7 +18,7 @@ define([ 'app' ],
                 }).done(function( msg ) {
                     callback.call(that);
                 }).fail(function( msg ) {
-
+                    console.error('create NOTE failed', msg);
                 });
             };
 
@@ -31,7 +31,7 @@ define([ 'app' ],
                 }).done(function( msg ) {
                     callback.call(that, msg);
                 }).fail(function( msg ) {
-
+                    console.error('delete NOTE failed', msg);
                 });
             };
 
@@ -52,7 +52,7 @@ define([ 'app' ],
                 }).done(function( msg ) {
                     callback.call(that);
                 }).fail(function( msg ) {
-
+                    console.error('update NOTE failed', msg);
                 });
             };
 
@@ -65,7 +65,7 @@ define([ 'app' ],
                 }).done(function( msg ) {
                     callback.call(that, msg);
                 }).fail(function( msg ) {
-
+                    console.error('get NOTE failed', msg);
                 });
             };
 
@@ -79,7 +79,7 @@ define([ 'app' ],
                 }).done(function( msg ) {
                     callback.call(that, msg);
                 }).fail(function( msg ) {
-
+                    console.error('getList NOTE failed', msg);
                 });
             };
         };
