@@ -14,3 +14,6 @@ Danach muss folgendes ausgefürt werden:
     grunt handlebars
 
 Dann als letztes ist genügend das index.js im root verzeichniss zu starten als NPM server.
+
+Das input Feld Date ist für Chrome und Safari optimiert (moderne Browser) 
+http://www.w3schools.com/html/html_form_input_types.asp  -> Input Type: date
