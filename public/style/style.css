@@ -139,18 +139,45 @@ body, input, button, select{
 
 
 
-/* @todo ricardo */
+/* @styles */
 
 .dracula{
-    background-color: #B94A48;
+    background-color: #366097;
     color: #FFFFFF;
 }
 .dracula .button{
     background-color: #000; color:#FF0000;
+    color:#FFF;
 }
 .dracula .button:hover{
     background-color: #666; color:#FF0000;
 }
 .dracula .items li:hover{
-    background-color: #AA2348;
+    background-color: #5890AD;
+}
+
+.hell{
+    background-color: #B94A48;
+    color: #FFFFFF;
+}
+.hell .button{
+    background-color: red; color:#FFF;
+}
+.hell .button:hover{ color:#000;
+}
+.hell .items li:hover{
+    background-color: #FF0000;
+}
+
+.sky{
+    background-color: #7EC0EE;
+    color: #FFFFFF;
+}
+.sky .button{
+    background-color: #FFF; color:#000;
+}
+.sky .button:hover{ color:#000;
+}
+.sky .items li:hover{
+    background-color: #97ccf1;
 }

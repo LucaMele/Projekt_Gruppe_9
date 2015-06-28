@@ -69,8 +69,6 @@ define([ 'app', 'validation' ],
              *
              * private function formValidation
              *
-             * Form validation (to be implemented) @todo ricardo
-             *
              * @param {object} form$El.
              * @param {object} region$el.
              **/
