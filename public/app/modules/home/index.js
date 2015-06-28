@@ -78,6 +78,16 @@ define([ 'app', 'helpers/connection' ],
                             main.removeClass(lastUsedStyle);
                             lastUsedStyle = 'dracula';
                             break;
+                        case 'sky':
+                            main.addClass('sky');
+                            main.removeClass(lastUsedStyle);
+                            lastUsedStyle = 'sky';
+                            break;
+                        case 'hell':
+                            main.addClass('hell');
+                            main.removeClass(lastUsedStyle);
+                            lastUsedStyle = 'hell';
+                            break;
                     }
                 });
             };
