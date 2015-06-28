@@ -2,13 +2,33 @@ define([ 'app', 'validation' ],
     function (App) {
         'use strict';
 
+        /**
+         * @constructor FormElHandler.
+         * */
         var FormElHandler = function() {
+
+            /**
+             *
+             * private function renderTemplates
+             *
+             * Render the form templates
+             *
+             * @param {object} object.
+             **/
             var renderTemplates = function(object) {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
                 App.getRegionByKey('content').html('');
                 return App.getRegionByKey('major').html(App.template('app/templates/form.hbs', object));
             };
 
+            /**
+             *
+             * private function formRunJs
+             *
+             * Rate logic
+             *
+             * @param {object} form$El.
+             **/
             var formRunJs = function(form$El) {
                 // rate
                 var importance;
@@ -45,10 +65,28 @@ define([ 'app', 'validation' ],
 
             };
 
+            /**
+             *
+             * private function formValidation
+             *
+             * Form validation (to be implemented) @todo ricardo
+             *
+             * @param {object} form$El.
+             * @param {object} region$el.
+             **/
             var formValidation = function(form$El, region$el) {
-                return true;//$("#create").validate();
+                return true;
             };
 
+            /**
+             *
+             * public function handle
+             *
+             * handle the form components
+             *
+             * @param {object} submitFormHandler.
+             * @param {object} object.
+             **/
             this.handle = function(submitFormHandler, object) {
                  var region$el = renderTemplates(object),
                      form$El =region$el.find('form');

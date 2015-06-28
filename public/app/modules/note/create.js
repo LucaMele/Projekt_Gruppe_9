@@ -23,7 +23,7 @@ define([ 'app' , 'helpers/connection', 'helpers/formElHandler'],
 
             /**
              *
-             * public function submitFormHandler
+             * public function load
              *
              * Modules entrance point
              *

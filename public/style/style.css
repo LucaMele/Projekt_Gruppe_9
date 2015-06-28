@@ -134,3 +134,23 @@ body, input, button, select{
     background-size:cover;
 }
 .forum_hover { background-color: #380606; }
+
+
+
+
+
+/* @todo ricardo */
+
+.dracula{
+    background-color: #B94A48;
+    color: #FFFFFF;
+}
+.dracula .button{
+    background-color: #000; color:#FF0000;
+}
+.dracula .button:hover{
+    background-color: #666; color:#FF0000;
+}
+.dracula .items li:hover{
+    background-color: #AA2348;
+}

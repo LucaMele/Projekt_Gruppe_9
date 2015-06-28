@@ -18,7 +18,13 @@ define([ 'templates' ],
                 head: body.find('#main-area-head')
             };
 
-            /* private function */
+            /**
+             *
+             * private function _createTemplateObject
+             *
+             * Create a template app object instead of using the JST one
+             *
+             **/
             var _createTemplateObject = function() {
                 var key;
                 for(key in JST) {
@@ -28,22 +34,51 @@ define([ 'templates' ],
                 }
             };
 
-            /* public function */
+            /**
+             *
+             * public function init
+             *
+             * Is the initialize function of the app manager
+             *
+             **/
             this.init = function() {
                 _createTemplateObject();
             };
 
-            /* public function */
+            /**
+             *
+             * public function template
+             *
+             * returns the specific template
+             *
+             * @param {string} key.
+             * @param {object} object.
+             *
+             **/
             this.template = function(key, object) {
                 return templates['public/' + key](object);
             };
 
-            /* public function */
+            /**
+             *
+             * public function getRegionByKey
+             *
+             *  return the jQuery Object for a given jquery selector defined as region
+             *
+             * @param {string} key.
+             *
+             **/
             this.getRegionByKey = function(key){
                 return regions[key];
             };
 
-            /* public function */
+            /**
+             *
+             * public function loadModule
+             *
+             * @param {string} url.
+             *
+             **/
             this.loadModule = function(url) {
                 if (typeof modules[url] === 'undefined') {
                     if (typeof modules[''] === 'undefined') {
@@ -56,7 +91,14 @@ define([ 'templates' ],
                 }
             };
 
-            /* public function */
+            /**
+             * public function registerModule
+             *
+             * Called from externals modules.. it enables them in the app
+             *
+             * @param {string} exports.
+             *
+             **/
             this.registerModule = function(exports) {
                 if (typeof exports.name !== 'undefined') {
                     modules[exports.name] = exports.module;

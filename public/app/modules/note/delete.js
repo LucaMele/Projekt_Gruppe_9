@@ -12,7 +12,7 @@ define([ 'app' , 'helpers/connection'],
 
             /**
              *
-             * public function submitFormHandler
+             * public function load
              *
              * Modules entrance point
              *

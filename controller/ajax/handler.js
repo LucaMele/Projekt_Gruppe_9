@@ -33,16 +33,14 @@ module.exports.updateNote = function(req, res) {
 
 module.exports.deleteNote = function(req, res) {
     var id = +req.originalUrl.replace( /^\D+/g, '');
-        db.update({id: id, state: 'OK'},  {$set: {"state": "DELETED"}}, function (err, numReplaced) {
-            res.format({
-                'application/json': function(){
-                    res.send({storage_id: null});
-                }
-            });
+    db.update({id: id, state: 'OK'},  {$set: {"state": "DELETED"}}, function (err, numReplaced) {
+        res.format({
+            'application/json': function(){
+                res.send({storage_id: null});
+            }
         });
+    });
 };
-
-
 
 module.exports.getNote = function(req, res) {
     db.find({id: +req.originalUrl.replace( /^\D+/g, ''), state: 'OK'}, function(err, doc){
@@ -57,7 +55,6 @@ module.exports.getNote = function(req, res) {
 module.exports.getNoteList = function(req, res) {
     var sortObj = {},
         findObject = {state: 'OK'};
-
     if (typeof req.query.o === 'undefined' && req.query.has !== 'undefined') {
         if(typeof req.query.q !== 'undefined') {
             findObject[req.query.q] = isNaN(req.query.has) ? new RegExp(req.query.has) : +req.query.has;

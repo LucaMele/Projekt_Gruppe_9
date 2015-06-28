@@ -5,7 +5,10 @@ define([ 'app', 'helpers/connection' ],
 
         var Home = function() {
 
-            var buttons$el, checkboxes$El, mainButtonsArea$el, searchInputText$El;
+            // CLASS Vars
+            var buttons$el, checkboxes$El, mainButtonsArea$el, searchInputText$El, style$elSwitch;
+
+            var lastUsedStyle = 'bw';
 
             var notes = {};
 
@@ -17,6 +20,11 @@ define([ 'app', 'helpers/connection' ],
 
             var activeIndex = 0;
 
+            /**
+             * private function findObjectById
+             *
+             * @param {number} id.
+             **/
             var findObjectById = function(id) {
                 var i, l;
                 for (i = 0, l = notes.length; i < l; i++) {
@@ -25,11 +33,19 @@ define([ 'app', 'helpers/connection' ],
                 return {};
             };
 
+            /**
+             * private function getCurrentDate
+             *
+             * @return {number} date in milliseconds.
+             **/
             var getCurrentDate = function () {
                 var d = new Date();
                 return d.getMilliseconds();
             };
 
+            /**
+             * private function enableMajorListeners
+             **/
             var enableMajorListeners = function() {
                 searchInputText$El.on('keyup', function(ev) {
                     var value = $(this).val(),
@@ -49,8 +65,26 @@ define([ 'app', 'helpers/connection' ],
                     searchInputText$El.val('');
                     sendQuery(lastQuery);
                 });
+                style$elSwitch.change(function() {
+                    var main = $('#main');
+                    switch ($(this).val()) {
+                        case 'bw':
+                            main.removeClass(lastUsedStyle);
+                            main.addClass('bw');
+                            lastUsedStyle = 'bw';
+                            break;
+                        case 'dracula':
+                            main.addClass('dracula');
+                            main.removeClass(lastUsedStyle);
+                            lastUsedStyle = 'dracula';
+                            break;
+                    }
+                });
             };
 
+            /**
+             * private function enableContentListeners
+             **/
             var enableContentListeners = function() {
                 buttons$el.on('click', function(ev) {
                     location.href = "#edit_note/" + $(ev.target).attr('data-id');
@@ -68,6 +102,9 @@ define([ 'app', 'helpers/connection' ],
                 });
             };
 
+            /**
+             * private function enableContentListeners
+             **/
             var renderContentTemplates = function() {
                 var templateObj = {notes: notes};
                 App.getRegionByKey('content').html(App.template('app/templates/content.hbs', templateObj));
@@ -75,6 +112,9 @@ define([ 'app', 'helpers/connection' ],
                 checkboxes$El = App.getRegionByKey('content').find('.checkbox-row-listener');
             };
 
+            /**
+             * private function renderMajorTemplates
+             **/
             var renderMajorTemplates = function() {
                 var i, l, templateObj = {buttons: {}};
                 for (i = 0, l = buttons.length; i < l; i++) {
@@ -83,8 +123,13 @@ define([ 'app', 'helpers/connection' ],
                 App.getRegionByKey('major').html(App.template('app/templates/index.hbs', templateObj));
                 searchInputText$El = App.getRegionByKey('major').find('#order_search');
                 mainButtonsArea$el = App.getRegionByKey('major').find('.listener-main-buttons-area');
+                style$elSwitch = App.getRegionByKey('major').find('.listener-style-switch');
+                style$elSwitch.val(lastUsedStyle);
             };
 
+            /**
+             * private function sendQuery
+             **/
             var sendQuery = function(query) {
                 connectionManager.getList(function(object){
                     notes = object;
@@ -93,6 +138,13 @@ define([ 'app', 'helpers/connection' ],
                 }, query);
             };
 
+            /**
+             *
+             * public function load
+             *
+             * Modules entrance point
+             *
+             **/
             this.load = function() {
                 App.getRegionByKey('head').html(App.template('app/templates/head.hbs', {}));
                 renderMajorTemplates();
@@ -101,21 +153,20 @@ define([ 'app', 'helpers/connection' ],
                 enableContentListeners();
                 sendQuery(lastQuery);
             };
-
-
         };
 
-
+        // Singleton Pattern
         if (inst === null) {
             inst = new Home();
         }
 
-
+        // Register a module in the app. The URL #home will call this module
         App.registerModule({
             module: inst,
             name: 'home'
         });
 
+        // Register a module in the app. The URL # will call this module
         App.registerModule({
             module: inst,
             name: ''
