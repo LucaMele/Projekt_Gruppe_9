@@ -110,6 +110,11 @@ define([ 'app', 'helpers/connection' ],
                     }
                     connectionManager.update(function() {  that.load(); }, note, note.id)
                 });
+
+                $('.description').on('click', function() {
+                    $(this).toggleClass('fulltxt');
+                    $(this).find('.dots').toggle();
+                });
             };
 
             /**
